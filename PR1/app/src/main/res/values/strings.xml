@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PR1</string>
+    <string name="text1">TextView</string>
+    <string name="text2">Text2</string>
+    <string name="text3">text3</string>
+    <string name="buttontext">КНОПКА</string>
+    <string name="textToSend">Введите сообщение для отправки</string>
+</resources>

@@ -16,7 +16,6 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
     }
-
     @SuppressLint("SetTextI18n")
     @Override
     protected void onResume()
@@ -37,9 +36,7 @@ public class SecondActivity extends AppCompatActivity {
         ageView.setText("Возраст: " + age);
         TextView markView = findViewById(R.id.textView4);
         markView.setText("Желаемая оценка: " + mark);
-
     }
-
     public void onPreviousAction(View view)
     {
         Intent intent = new Intent(this, MainActivity.class);

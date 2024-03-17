@@ -62,20 +62,23 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Log.i(LOG, "Activity is Resumed!");
         Toast.makeText(getApplicationContext(), "Activity успешно функционирует", Toast.LENGTH_LONG).show();
-        Button myButton = findViewById(R.id.button_program); // Получения ссылки на кнопку
+
+        Button myButton = findViewById(R.id.button_program); // Получение ссылки на кнопку
         myButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Toast.makeText(getApplicationContext(), "Переход к новому Activity при помощи программного метода", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        "Переход к новому Activity при помощи программного метода", Toast.LENGTH_SHORT).show();
                 onNextActivity();
             }
         });
     }
     public void onNextActivityDeclatarate(View view)
     {
-        Toast.makeText(this, "Переход к новому Activity при помощи делкративного метода", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Переход к новому Activity при помощи делкративного метода",
+                Toast.LENGTH_SHORT).show();
         onNextActivity();
     }
 

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onResume();
         Log.i(LOG, "Activity is Resumed!");
-        Toast.makeText(getApplicationContext(), "Activity успешно функционирует", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), R.string.activity_successfully_working, Toast.LENGTH_LONG).show();
 
         Button myButton = findViewById(R.id.button_program); // Получение ссылки на кнопку
         myButton.setOnClickListener(new View.OnClickListener()
@@ -70,14 +70,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Toast.makeText(getApplicationContext(),
-                        "Переход к новому Activity при помощи программного метода", Toast.LENGTH_SHORT).show();
+                        R.string.switch_activity_program, Toast.LENGTH_SHORT).show();
                 onNextActivity();
             }
         });
     }
     public void onNextActivityDeclatarate(View view)
     {
-        Toast.makeText(this, "Переход к новому Activity при помощи делкративного метода",
+        Toast.makeText(this, R.string.switch_activity_declatarate,
                 Toast.LENGTH_SHORT).show();
         onNextActivity();
     }
@@ -89,24 +89,32 @@ public class MainActivity extends AppCompatActivity {
         EditText ageText = findViewById(R.id.editTextAge);
         EditText markText = findViewById(R.id.editTextMark);
 
-        String name, group, age, mark;
+        String name, group;
+        int age, mark;
+
         name = nameText.getText().toString();
         group = groupText.getText().toString();
-        age = ageText.getText().toString();
-        mark = markText.getText().toString();
-
-        if (!name.isEmpty() && !group.isEmpty() && !age.isEmpty() && !mark.isEmpty())
+        if (!ageText.getText().toString().isEmpty() && !markText.getText().toString().isEmpty())
         {
-            // Создаем намерение и добавляем данные, которые хотим перенести
-            //в другое Activity
+            age =  Integer.parseInt(ageText.getText().toString());
+            mark = Integer.parseInt(markText.getText().toString());
+        }
+        else
+        {
+            age = 0;
+            mark = 0;
+        }
+
+        if (!name.isEmpty() && !group.isEmpty() && age > 0 && mark > 0)
+        {
+            Student student = new Student(name, age, group, mark);
             Intent intent = new Intent(this, SecondActivity.class);
-            intent.putExtra("name", name);
-            intent.putExtra("group", group);
-            intent.putExtra("age", age);
-            intent.putExtra("mark", mark);
+
+            intent.putExtra(Student.class.getSimpleName(), student);
+
 
             startActivity(intent);
         }
-        else Toast.makeText(this, "Заполните все поля!", Toast.LENGTH_SHORT).show();
+        else Toast.makeText(this, R.string.fill_all_fields, Toast.LENGTH_SHORT).show();
     }
 }

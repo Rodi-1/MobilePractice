@@ -6,9 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -23,19 +21,26 @@ public class SecondActivity extends AppCompatActivity {
         super.onResume();
 
         Bundle arguments = getIntent().getExtras();
-        String name = arguments.get("name").toString();
-        String group = arguments.get("group").toString();
-        String age = arguments.get("age").toString();
-        String mark = arguments.get("mark").toString();
 
-        TextView nameView = findViewById(R.id.textView);
-        nameView.setText("Студент: " + name);
-        TextView groupView = findViewById(R.id.textView2);
-        groupView.setText("Группа: " + group);
-        TextView ageView = findViewById(R.id.textView3);
-        ageView.setText("Возраст: " + age);
-        TextView markView = findViewById(R.id.textView4);
-        markView.setText("Желаемая оценка: " + mark);
+        if(arguments != null)
+        {
+            Student student = arguments.getParcelable(Student.class.getSimpleName());
+            String name = student.getName();
+            String group = student.getGroup();
+            int age = student.getAge();
+            int mark = student.getDesired_mark();
+
+            TextView nameView = findViewById(R.id.textView);
+            nameView.setText(getString(R.string.student) + name);
+            TextView groupView = findViewById(R.id.textView2);
+            groupView.setText(getString(R.string.group) + group);
+            TextView ageView = findViewById(R.id.textView3);
+            ageView.setText(getString(R.string.age) + age);
+            TextView markView = findViewById(R.id.textView4);
+            markView.setText(getString(R.string.wanted_mark) + mark);
+        }
+
+
     }
     public void onPreviousAction(View view)
     {

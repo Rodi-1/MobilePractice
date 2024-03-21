@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Pr3</string>
     <string name="backButton">Вернуться назад</string>
+    <string name="switch_activity_program">Переход к новому Activity при помощи программного метода</string>
+    <string name="activity_successfully_working">Activity успешно функционирует</string>
+    <string name="switch_activity_declatarate">Переход к новому Activity при помощи делкративного метода</string>
+    <string name="fill_all_fields">Заполните все поля!</string>
+    <string name="student">"Студент: "</string>
+    <string name="group">"Группа: "</string>
+    <string name="age">"Возраст: "</string>
+    <string name="wanted_mark">"Желаемая оценка: "</string>
 </resources>

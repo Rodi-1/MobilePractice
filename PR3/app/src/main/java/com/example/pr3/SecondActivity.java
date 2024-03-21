@@ -1,4 +1,4 @@
-package com.example.pr2;
+package com.example.pr3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,7 +39,7 @@ public class SecondActivity extends AppCompatActivity {
     }
     public void onPreviousAction(View view)
     {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, com.example.pr3.MainActivity.class);
         startActivity(intent);
     }
 }

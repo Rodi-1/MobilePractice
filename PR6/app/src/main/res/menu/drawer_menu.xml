@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_pic1"
+        android:icon="@drawable/ic_one"
+        android:title="@string/p1_dota2" />
+    <item
+        android:id="@+id/nav_pic2"
+        android:icon="@drawable/ic_two"
+        android:title="@string/p1_apex_legend" />
+    <item
+        android:id="@+id/nav_pic3"
+        android:icon="@drawable/ic_three"
+        android:title="@string/p1_league_of_legends" />
+    <item
+        android:id="@+id/nav_task2"
+        android:icon="@drawable/ic_next"
+        android:title="@string/p1_task_2" />
+    <!-- Добавьте дополнительные пункты здесь -->
+</menu>

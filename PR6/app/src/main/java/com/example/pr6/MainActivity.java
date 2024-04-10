@@ -39,19 +39,19 @@ public class MainActivity extends AppCompatActivity {
 
             if (item.getItemId() == R.id.nav_pic1){
                 fragmentManager.beginTransaction().replace(R.id.fragmentContainerView2, p1_fragment_1.class, null).commit();
-                Toast.makeText(MainActivity.this, R.string.p1_dota2, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, R.string.p1_dota2, Toast.LENGTH_SHORT).show();
                 getSupportActionBar().setTitle("Dota2");
                 return true;
             }
             else if (item.getItemId()==R.id.nav_pic2){
-                Toast.makeText(MainActivity.this,R.string.p1_apex_legend, Toast.LENGTH_LONG).show();
                 fragmentManager.beginTransaction().replace(R.id.fragmentContainerView2, p1_fragment_2.class, null).commit();
+                Toast.makeText(MainActivity.this,R.string.p1_apex_legend, Toast.LENGTH_SHORT).show();
                 getSupportActionBar().setTitle("Apex Legends");
                 return true;
 
             } else if (item.getItemId() == R.id.nav_pic3) {
-                Toast.makeText(MainActivity.this, R.string.p1_league_of_legends, Toast.LENGTH_LONG).show();
                 fragmentManager.beginTransaction().replace(R.id.fragmentContainerView2, p1_fragment_3.class, null).commit();
+                Toast.makeText(MainActivity.this, R.string.p1_league_of_legends, Toast.LENGTH_SHORT).show();
                 getSupportActionBar().setTitle("League of Legends");
                 return true;
 
@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
         toggle = new ActionBarDrawerToggle(this, drawer, R.string.drawer_open, R.string.drawer_close);
         if (drawer != null) {
-            Toast.makeText(this, "Drawer != null", Toast.LENGTH_SHORT).show();
             drawer.addDrawerListener(toggle);
         }
         toggle.syncState();
@@ -89,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
     // Обработка нажатия на иконку меню в ActionBar для открытия и закрытия Drawer
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Toast.makeText(this, "onOptionsItemSelected", Toast.LENGTH_SHORT).show();
-
         if (toggle.onOptionsItemSelected(item)) {
             return true;
         }

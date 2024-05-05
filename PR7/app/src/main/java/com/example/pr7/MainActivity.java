@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onFirstTaskActivity(View view) {
-        // переход на первую активность
+        Intent intent = new Intent(MainActivity.this, Activity1.class);
+        startActivity(intent);
     }
 
     public void onSecondTaskActivity(View view) {

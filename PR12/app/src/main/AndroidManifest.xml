@@ -17,7 +17,8 @@
 
         <provider
             android:name=".UserProvider"
-            android:authorities="com.example.app.provider"
+            android:authorities="com.example.pr12.UserProvider"
+            android:permission="com.example.pr12.READ_USER_DATA"
             android:exported="true" />
 
         <activity

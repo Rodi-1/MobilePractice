@@ -2,10 +2,13 @@ package com.example.pr12;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
 import android.os.Environment;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -17,25 +20,21 @@ import java.nio.charset.StandardCharsets;
 public class UserProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
+        Toast.makeText(getContext(), "UserProvider.onCreate()", Toast.LENGTH_SHORT).show();
         return true;
     }
 
     @Override
     public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+        Toast.makeText(getContext(), "UserProvider.query()", Toast.LENGTH_SHORT).show();
         MatrixCursor cursor = new MatrixCursor(new String[] {"json"});
         try {
-            File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-            File file = new File(storageDir, "jsonFile.json");
-
-            FileInputStream fis = new FileInputStream(file);
-            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
-
-            char[] inputBuffer = new char[(int) file.length()];
-            isr.read(inputBuffer);
-            String jsonData = new String(inputBuffer);
-            isr.close();
+            // Читаем JSON из SharedPreferences
+            SharedPreferences sharedPreferences = getContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
+            String jsonData = sharedPreferences.getString("userJson", "");
 
             cursor.addRow(new Object[] {jsonData});
+            Toast.makeText(getContext(), "Cursor JSON: " + jsonData, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -2,6 +2,7 @@ package com.example.pr12;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -22,7 +23,7 @@ import java.nio.charset.StandardCharsets;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final Uri CONTENT_URI = Uri.parse("content://com.example.app.provider/user");
+    public static final Uri CONTENT_URI = Uri.parse("content://com.example.pr12.UserProvider");
     private User user;
     private Gson gson;
     private String userJson;
@@ -64,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
             userJson = parseUserToJson(user);
             Log.i("User","data saved:\n" + userJson);
             // save json to file
+
+            // добавляем данные в SharedPreferences для передачи с помощью ContentProvider
+            SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("userJson", userJson);
+            editor.apply();
 
             File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
             if (!storageDir.exists())
@@ -128,6 +135,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onTransmit(View view) {
+        // Сохраняем данные пользователя
+        onSave(view);
 
+        // Уведомляем заинтересованные стороны о том, что данные изменились
+        getContentResolver().notifyChange(CONTENT_URI, null);
+
+        Toast.makeText(this, "Данные переданы", Toast.LENGTH_SHORT).show();
     }
 }

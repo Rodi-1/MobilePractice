@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "PR9"
 include(":app")
- 
+include(":app2")

@@ -38,16 +38,11 @@ public class FruitsActivity extends AppCompatActivity {
         fruitList.setAdapter(fruitsAdapter);
 
         fruitList.setOnItemClickListener(
-                new AdapterView.OnItemClickListener()
-                {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-                    {
-                        // Проверяем item на нажатие, если нажат добавляем в соответствующий список
-                        String fruit = fruitsAdapter.getItem(position);
-                        if (fruitList.isItemChecked(position)) selectedFruits.add(fruit);
-                        else selectedFruits.remove(fruit);
-                    }
+                (parent, view, position, id) -> {
+                    // Проверяем item на нажатие, если нажат добавляем в соответствующий список
+                    String fruit = fruitsAdapter.getItem(position);
+                    if (fruitList.isItemChecked(position)) selectedFruits.add(fruit);
+                    else selectedFruits.remove(fruit);
                 }
         );
     }

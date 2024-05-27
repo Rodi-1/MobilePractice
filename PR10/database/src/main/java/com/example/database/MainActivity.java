@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         if (lessonList == null) {LessonCount = 0;}
         else
         {
-            if(lessonList.size() != 0)
+            if(!lessonList.isEmpty())
             {
                 LessonCount = lessonList.get(lessonList.size() - 1).getId();
             }

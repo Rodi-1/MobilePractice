@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PR12</string>
+    <string name="error_empty_message">Строка не заполнена!</string>
+</resources>

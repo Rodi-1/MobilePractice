@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(item -> {
-
             if (item.getItemId() == R.id.nav_pic1){
                 fragmentManager.beginTransaction().replace(R.id.fragmentContainerView2, p1_fragment_1.class, null).commit();
                 Toast.makeText(MainActivity.this, R.string.p1_dota2, Toast.LENGTH_SHORT).show();
@@ -60,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, R.string.p1_task_2, Toast.LENGTH_LONG).show();
                 startActivity(new Intent(this, MainActivity2.class));
                 return true;
-
             }
 
             return false;

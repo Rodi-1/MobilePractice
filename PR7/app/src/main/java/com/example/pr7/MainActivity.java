@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         builder = new AlertDialog.Builder(MainActivity.this);
         builder.setView(R.layout.custom_dialog); // Позволяет засовывать свои лейауты внутрь окна помимо стандартных кнопок
         builder.setIcon(android.R.drawable.ic_dialog_alert);
-
-
     }
 
     public void onFirstTaskActivity(View view) {

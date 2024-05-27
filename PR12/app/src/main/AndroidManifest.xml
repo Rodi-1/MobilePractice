@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.WRITE_PROVIDER" />
+
 
     <application
         android:allowBackup="true"
@@ -16,10 +16,9 @@
         tools:targetApi="31">
 
         <provider
-            android:name=".BookProvider"
+            android:name=".UserProvider"
             android:authorities="com.example.app.provider"
-            android:exported="true"
-            android:permission="android.permission.READ_PROVIDER" />
+            android:exported="true" />
 
         <activity
             android:name=".MainActivity"
@@ -31,5 +30,7 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
 </manifest>

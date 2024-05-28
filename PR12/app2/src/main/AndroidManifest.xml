@@ -4,6 +4,10 @@
 
     <uses-permission android:name="com.example.pr12.READ_USER_DATA" />
 
+    <queries>
+        <provider android:authorities="com.example.pr12.UserProvider" />
+    </queries>
+
 
     <application
         android:allowBackup="true"

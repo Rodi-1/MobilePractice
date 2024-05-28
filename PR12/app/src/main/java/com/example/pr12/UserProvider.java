@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,7 @@ public class UserProvider extends ContentProvider {
 
     @Override
     public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        Toast.makeText(getContext(), "UserProvider.query()", Toast.LENGTH_SHORT).show();
+        Log.d("UserProvider", "query() called");
         MatrixCursor cursor = new MatrixCursor(new String[] {"json"});
         try {
             // Читаем JSON из SharedPreferences
@@ -34,10 +35,11 @@ public class UserProvider extends ContentProvider {
             String jsonData = sharedPreferences.getString("userJson", "");
 
             cursor.addRow(new Object[] {jsonData});
-            Toast.makeText(getContext(), "Cursor JSON: " + jsonData, Toast.LENGTH_SHORT).show();
+            Log.d("UserProvider", "Cursor JSON: " + jsonData);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Log.d("UserProvider", "query() returned cursor with " + cursor.getCount() + " rows");
         return cursor;
     }
 

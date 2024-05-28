@@ -21,6 +21,8 @@
             android:permission="com.example.pr12.READ_USER_DATA"
             android:exported="true" />
 
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -31,7 +33,10 @@
             </intent-filter>
         </activity>
     </application>
+
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <permission android:name="com.example.pr12.READ_USER_DATA" android:protectionLevel="dangerous"/>
 
 
 </manifest>
